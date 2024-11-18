@@ -313,7 +313,14 @@
   Your browser does not support the video tag.
     </video>  </div>
 </div>
+<!-- Background Audio -->
+<audio id="background-audio" src="Project.mp3" loop></audio>
 
+<!-- Video -->
+<video id="revolution-video" width="100%" controls>
+  <source src="https://drive.google.com/uc?id=1CsaUjfH7JDg6-OqZYa0XVMmLBXMzM5IA" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 <!-- Info Section with 25 Buttons -->
 <div id="info-section" class="content-section">
   <div class="intro-text">
@@ -391,7 +398,19 @@
   function closePopup() {
     document.getElementById('popup').classList.remove('show');
   }
+  // Select video and audio elements
+const video = document.getElementById('revolution-video');
+const audio = document.getElementById('background-audio');
+
+// Stop background audio when video plays
+video.addEventListener('play', () => {
+  audio.pause();
+});
+
+// Resume background audio when video pauses
+video.addEventListener('pause', () => {
+  audio.play();
+});
 </script>
-<script src="script.js"></script>
 </body>
 </html>
